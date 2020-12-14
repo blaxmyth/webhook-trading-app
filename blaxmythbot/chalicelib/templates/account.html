@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" id="home-page">
+
+    <div class="row">
+        <h4>Account Information</h4>
+        <ul class="collection">
+            <li class="collection-item">Name: {{ profile['name'] }}</li>
+            {% for key, value in profile['account'].items() %}
+                <li class="collection-item">{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <h4>Balances</h4>
+        <ul class="collection">
+            {% for key, value in profile['balances'].items() %}
+                <li class="collection-item">{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+</div>
+{% endblock %}

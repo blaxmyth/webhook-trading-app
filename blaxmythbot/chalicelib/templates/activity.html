@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" id="home-page">
+
+    <div class="row">
+        <h4>Gain Loss</h4>
+        <ul class="collection">
+            {% for i in gainloss['closed_position'] %}
+                {% if i['gain_loss_percent'] > 0 %}
+                    <li class="collection-item positive">{{ i }}</li>
+                {% endif %}
+                {% if i['gain_loss_percent'] < 0  %}
+                    <li class="collection-item negative">{{ i }}</li>
+                {% endif %}
+                
+
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <h4>Positions</h4>
+        
+        <ul class="collection">
+           
+            {% for i in positions['position'] %}
+                <li class="collection-item">{{ i }}</li>
+            {% endfor %}
+
+        </ul>
+       
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <h4>Orders</h4>
+        <ul class="collection">
+            {% for i in orders %}
+                <li class="collection-item">{{ i }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="divider"></div>
+</div>
+{% endblock %}
